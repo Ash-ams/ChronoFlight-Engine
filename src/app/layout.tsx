@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "ChronoFlight Evaluation Console",
   description: "Aviation SQL Engine — Evaluation Command Center",
+  icons: {
+    icon: '/logo.png',
+  },
 };
 
 export default function RootLayout({

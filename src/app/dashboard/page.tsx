@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState, useEffect, useMemo } from 'react';
 import { supabase } from '../../../lib/supabase';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -676,8 +677,8 @@ export default function Dashboard() {
       >
         {/* Logo strip */}
         <div className="flex items-center gap-3 px-5 py-5 border-b border-slate-800/60">
-          <div className="flex items-center justify-center w-9 h-9 rounded-lg bg-cyan-900/40 border border-cyan-500/30">
-            <Plane size={18} className="text-cyan-400" />
+          <div className="flex items-center justify-center w-9 h-9 rounded-lg overflow-hidden shrink-0">
+            <Image src="/logo.png" width={36} height={36} alt="ChronoFlight Logo" className="object-contain w-full h-full drop-shadow-[0_0_8px_rgba(34,211,238,0.4)]" />
           </div>
           <div>
             <h1 className="text-sm font-semibold text-white tracking-wide" style={{ fontFamily: "'Inter', sans-serif" }}>
