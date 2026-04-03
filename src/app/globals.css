@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
+@theme {
+  --color-stratosphere-900: #04081c;
+  --color-stratosphere-800: #081236;
+  --color-cyan-glow: #00f0ff;
+  --color-silver-brush: #e2e8f0;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: var(--color-stratosphere-900);
+  --foreground: #ffffff;
 }
 
 body {
-  background: var(--background);
+  background: radial-gradient(circle at center, var(--color-stratosphere-800) 0%, var(--color-stratosphere-900) 100%);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden; /* Important for 3D full screen */
+  margin: 0;
+  padding: 0;
+}
+
+/* Dashboard route overrides */
+body:has(.dashboard-shell) {
+  overflow: auto;
+  background: #030712;
+}
+
+/* Custom scrollbar for dark aero theme */
+.dashboard-shell ::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.dashboard-shell ::-webkit-scrollbar-track {
+  background: transparent;
+}
+.dashboard-shell ::-webkit-scrollbar-thumb {
+  background: rgba(34, 211, 238, 0.2);
+  border-radius: 3px;
+}
+.dashboard-shell ::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 211, 238, 0.4);
+}
+
+/* Pulse glow animation for spinner */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(34, 211, 238, 0.3); }
+  50% { box-shadow: 0 0 24px rgba(34, 211, 238, 0.7); }
+}
+@keyframes spin-slow {
+  to { transform: rotate(360deg); }
 }
